@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { InfiniteMovingCards } from "../components/components/ui/infinite-moving-cards.tsx";
+
 ---
 
 <Layout title="Welcome to Aluben Services.">
@@ -8,20 +10,8 @@ import Card from '../components/Card.astro';
 		<img src="https://cdn.jsdelivr.net/gh/Aluben-service/Aluben_icons/logo.jpeg">
 		<h1>Welcome to <span class="text-gradient">Aluben services</span></h1>
 		<p class="instructions">
-			To get started, Click one of the options below:<br/>
+			To get started, Click one of the options below<br/>
 		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-                href="https://aluben.org"
-				title="Aluben"
-				body="Can you read the title please?"
-			/>
-			<Card
-				href="https://tyap-aluben.duckdns.org/"
-				title="Tyap"
-				body="Tyap"
-			/>
-		</ul>
                 <h3>Source Code</h3>
 		<ul role="list" class="link-card-grid">
 			<Card
@@ -36,6 +26,13 @@ import Card from '../components/Card.astro';
 			/>
 		</ul>
 	</main>
+  <InfiniteMovingCards
+    items={items}
+    direction="left"
+    speed="fast"
+    pauseOnHover={true}
+    client:load
+  />
 </Layout>
 
 <style>
